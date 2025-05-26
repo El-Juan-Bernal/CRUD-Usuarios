@@ -3,6 +3,7 @@ package com.JLC_ITsolutions.CRUD_usuarios.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,14 @@ import jakarta.validation.Valid;
 public class UsuarioController {
     @Autowired
     private UsuarioService service;
+
+    @PostMapping
+    public ResponseEntity<UsuarioModel> crearCuenta(@RequestBody @Valid CuentaDTO dto) {
+        UsuarioModel creada = service.crearUsuario(dto);
+        return new ResponseEntity<>(creada, HttpStatus.CREATED);
+    }
+
+    
     @DeleteMapping ("/id")
     public ResponseEntity<Void>eliminarusuario(@PathVariable Integer id){
         service.EliminarUsuario(id);

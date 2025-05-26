@@ -58,7 +58,4 @@ public class UsuarioService {
         return usuario.isPresent()&& usuario.get().getContrasenia().equals(contrasenia);
     }
 
-
-
-    
 }
