@@ -15,7 +15,7 @@ public class UsuarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer idUsuario;
+    private Integer id;
 
     @NotBlank
     private String nombre;
